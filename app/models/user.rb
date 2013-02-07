@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+  include FriendlyId
+  include Gravtastic
+
+  friendly_id :name, :use => :slugged
+  has_gravatar
+  
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
