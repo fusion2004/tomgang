@@ -57,7 +57,7 @@
     <% end %>
 
     <div class="four columns">
-      <% if controller_name != 'sessions' %>
+      <% if !devise_controller? %>
       <h2>Sign in</h2>
 
       <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -76,7 +76,9 @@
 
       <%= render "devise/shared/links" %>
       <% else %>
-        <p>You should totally log in, man. Do iiiiiiit.</p>
+        <p><span style="font-size:1.5em">GO</span> <span style="font-size:1.3em">GO</span> <span style="font-size:1.1em">GO</span></p>
+        <p>so that you can</p>
+        <p><span style="font-size:1.5em">IDLE</span> <span style="font-size:1.3em">IDLE</span> <span style="font-size:1.1em">IDLE</span></p>
       <% end %>
     </div>
     <div class="eight columns">
