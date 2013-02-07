@@ -16,3 +16,12 @@
 .main {
   margin: 15px auto;
 }
+
+#error_explanation h2 {
+  font-size: 1.2em;
+  color: #c60f13;
+}
+
+#error_explanation ul {
+  list-style: disc inside;
+}
