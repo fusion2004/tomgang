@@ -15,4 +15,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :last_level_up, :level, :name, :next_level_up, :slug
+
+  validates :name, presence: true, uniqueness: { :case_sensitive => false }
+
 end
