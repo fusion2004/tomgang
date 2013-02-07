@@ -11,9 +11,22 @@ gem 'pg'
 
 gem 'devise'
 
+# Gravatars
+gem 'gravtastic'
+
+# Slugs
+gem 'friendly_id'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
+
+  # Excellent dev error screens
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  # Chrome dev log
+  gem 'meta_request'
 end
 
 
