@@ -25,17 +25,22 @@ $(document).ready(function() {
       next_date = new Date(next_level_up),
       total_secs = (next_date - last_date)/1000;
 
+  window.time_to_reload = false;
+
   var update_progress = function() {
     var d = new Date(),
         current_secs = (d - last_date)/1000,
         remaining_secs = total_secs - current_secs,
         progress = (current_secs / total_secs) * 100;
 
+    console.log('rs: '+remaining_secs);
     if(remaining_secs < 0) {
       remaining_secs = 0;
       progress = 100;
-      setTimeout(document.location.reload, 1000);
-      return;
+      if(!window.time_to_reload) {
+        setTimeout("document.location.reload()", 1000);
+        window.time_to_reload = true;
+      }
     }
 
     $user_progress_meter.width(progress+'%');
