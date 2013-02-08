@@ -78,8 +78,51 @@
         <p><strong>Level <%= current_user.level %></strong> | <span id="level_progress_secs_remaining"><%= @current_secs %></span> seconds remaining</p>
         <hr />
 
-        <p><div id="user_hp_progress" data-current-hp="<%= current_user.current_hp %>" data-max-hp="<%= current_user.max_hp %>" class="radius progress alert"><span class="meter" style="width: <%= @hp_percent %>%"></span><div class="progress-data"><%= current_user.current_hp %> / <%= current_user.max_hp %></div></div></p>
-        <p><div id="user_mana_progress" data-current-hp="<%= current_user.current_mana %>" data-max-hp="<%= current_user.max_mana %>" class="radius progress"><span class="meter" style="width: <%= @mana_percent %>%"></span><div class="progress-data"><%= current_user.current_mana %> / <%= current_user.max_mana %></div></div></p>
+        <div class="row">
+          <div class="two columns">
+            <p><strong>Health</strong></p>
+          </div>
+          <div class="ten columns">
+            <div id="user_hp_progress" data-current-hp="<%= current_user.current_hp %>" data-max-hp="<%= current_user.max_hp %>" class="radius progress alert"><span class="meter" style="width: <%= @hp_percent %>%"></span><div class="progress-data"><%= current_user.current_hp %> / <%= current_user.max_hp %></div></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="two columns">
+            <p><strong>Mana</strong></p>
+          </div>
+          <div class="ten columns">
+            <div id="user_mana_progress" data-current-hp="<%= current_user.current_mana %>" data-max-hp="<%= current_user.max_mana %>" class="radius progress"><span class="meter" style="width: <%= @mana_percent %>%"></span><div class="progress-data"><%= current_user.current_mana %> / <%= current_user.max_mana %></div></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="two columns">
+            <p><strong>Stats</strong></p>
+          </div>
+          <div class="ten columns">
+            <table class="twelve">
+              <tbody>
+                <tr>
+                  <td class="five">STR</td>
+                  <td class="six"><%= current_user.str %></td>
+                </tr>
+                <tr>
+                  <td>VIT</td>
+                  <td><%= current_user.vit %></td>
+                </tr>
+                <tr>
+                  <td>DEX</td>
+                  <td><%= current_user.dex %></td>
+                </tr>
+                <tr>
+                  <td>INT</td>
+                  <td><%= current_user.int %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       <% elsif !devise_controller? %>
         <h2>Sign in</h2>
 
