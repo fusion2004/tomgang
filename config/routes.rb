@@ -3,7 +3,7 @@ Tomgang::Application.routes.draw do
 
   devise_for :users, path: 'account'
 
-  resouces :users
+  resources :users
 
   root to: 'home#index'
   
