@@ -3,6 +3,8 @@ Tomgang::Application.routes.draw do
 
   devise_for :users, path: 'account'
 
+  resouces :users
+
   root to: 'home#index'
   
   # The priority is based upon order of creation:
