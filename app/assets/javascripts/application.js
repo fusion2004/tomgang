@@ -33,7 +33,6 @@ $(document).ready(function() {
         remaining_secs = total_secs - current_secs,
         progress = (current_secs / total_secs) * 100;
 
-    console.log('rs: '+remaining_secs);
     if(remaining_secs < 0) {
       remaining_secs = 0;
       progress = 100;
