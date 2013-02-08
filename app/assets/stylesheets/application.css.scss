@@ -34,6 +34,14 @@
   position: relative;
 }
 
+.progress-animate {
+  -webkit-transition: width 290ms linear;
+  -moz-transition: width 290ms linear;
+  -ms-transition: width 290ms linear;
+  -o-transition: width 290ms linear;
+  transition: width 290ms linear;
+}
+
 .progress-data {
   position: absolute;
   left: 0;

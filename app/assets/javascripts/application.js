@@ -26,6 +26,7 @@ $(document).ready(function() {
       total_secs = (next_date - last_date)/1000;
 
   window.time_to_reload = false;
+  window.initial_progress = false;
 
   var update_progress = function() {
     var d = new Date(),
@@ -44,6 +45,11 @@ $(document).ready(function() {
 
     $user_progress_meter.width(progress+'%');
     $secs_remaining.text(Math.ceil(remaining_secs));
+
+    if(!window.initial_progress) {
+      $user_progress_meter.addClass('progress-animate');
+      window.initial_progress = true;
+    }
   };
   if(window.user_signed_in) {
     var progress_timer = setInterval(update_progress, 300);
