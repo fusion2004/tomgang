@@ -23,6 +23,21 @@ body {
   margin: 15px auto;
 }
 
+.nav-gravatar {
+  //display: block;
+  float: left;
+  margin-right: 6px;
+
+  margin-top: 6px;
+
+  @media only screen and (max-width: 767px) {
+    //margin-top: -4px;
+  }
+}
+
+.title.back .nav-gravatar {
+  margin-top: -4px;
+}
 .user-links {
   margin-top: 15px;
 }

@@ -29,11 +29,21 @@
       </ul>
       <section>
         <ul class="left">
-          <li><a href="#">Link</a></li>
+          <li><%= link_to 'Users', users_path %></li>
         </ul>
 
         <ul class="right">
-          <li><a href="#">Link</a></li>
+          <% if user_signed_in? %>
+          <li class="has-dropdown">
+            <%= link_to current_user do %><%= image_tag current_user.gravatar_url, width: '32px', height: '32px', class: 'nav-gravatar' %> <%= current_user.name %><% end %>
+            <ul class="dropdown">
+              <!--<li>Level <%= current_user.level %></li>-->
+              <li><label>Actions</label></li>
+              <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+          <% end %>
         </ul>
       </section>
     </nav>
