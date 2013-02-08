@@ -74,7 +74,7 @@
         </div>
         <hr />
 
-        <div id="user_level_progress" data-last-level-up="<%= current_user.last_level_up.to_i %>" data-next-level-up="<%= current_user.next_level_up.to_i %>" class="radius progress success"><span class="meter" style="width: <%= @level_percent %>%"></span></div>
+        <div id="user_level_progress" data-last-level-up="<%= current_user.last_level_up.to_i %>" data-next-level-up="<%= current_user.next_level_up.to_i %>" class="radius progress success"><div class="progress-background">&nbsp;</div><span class="meter" style="width: <%= @level_percent %>%"></span><div class="progress-data"><%= @level_percent.to_i %>%</div></div>
         <p><strong>Level <%= current_user.level %></strong> | <span id="level_progress_secs_remaining"><%= @current_secs %></span> seconds remaining</p>
         <hr />
 
@@ -83,7 +83,7 @@
             <p><strong>Health</strong></p>
           </div>
           <div class="ten columns">
-            <div id="user_hp_progress" data-current-hp="<%= current_user.current_hp %>" data-max-hp="<%= current_user.max_hp %>" class="radius progress alert"><span class="meter" style="width: <%= @hp_percent %>%"></span><div class="progress-data"><%= current_user.current_hp %> / <%= current_user.max_hp %></div></div>
+            <div id="user_hp_progress" data-current-hp="<%= current_user.current_hp %>" data-max-hp="<%= current_user.max_hp %>" class="radius progress alert"><div class="progress-background">&nbsp;</div><span class="meter" style="width: <%= @hp_percent %>%"></span><div class="progress-data"><%= current_user.current_hp %> / <%= current_user.max_hp %></div></div>
           </div>
         </div>
 
@@ -92,7 +92,7 @@
             <p><strong>Mana</strong></p>
           </div>
           <div class="ten columns">
-            <div id="user_mana_progress" data-current-hp="<%= current_user.current_mana %>" data-max-hp="<%= current_user.max_mana %>" class="radius progress"><span class="meter" style="width: <%= @mana_percent %>%"></span><div class="progress-data"><%= current_user.current_mana %> / <%= current_user.max_mana %></div></div>
+            <div id="user_mana_progress" data-current-hp="<%= current_user.current_mana %>" data-max-hp="<%= current_user.max_mana %>" class="radius progress"><div class="progress-background">&nbsp;</div><span class="meter" style="width: <%= @mana_percent %>%"></span><div class="progress-data"><%= current_user.current_mana %> / <%= current_user.max_mana %></div></div>
           </div>
         </div>
 

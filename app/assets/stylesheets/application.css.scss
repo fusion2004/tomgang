@@ -34,12 +34,32 @@
   position: relative;
 }
 
+.progress .meter {
+  z-index: 9000;
+}
+
 .progress-animate {
   -webkit-transition: width 290ms linear;
   -moz-transition: width 290ms linear;
   -ms-transition: width 290ms linear;
   -o-transition: width 290ms linear;
   transition: width 290ms linear;
+}
+
+.progress-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #CCC;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  border: 2px solid #fff;
+  z-index: -9000;
 }
 
 .progress-data {

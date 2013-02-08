@@ -17,6 +17,7 @@
 
 $(document).ready(function() {
   var $user_progress = $('#user_level_progress'),
+      $user_progress_text = $user_progress.find('.progress-data'),
       $user_progress_meter = $user_progress.find('.meter'),
       $secs_remaining = $('#level_progress_secs_remaining');
   var last_level_up = $user_progress.data('last-level-up') * 1000,
@@ -44,6 +45,9 @@ $(document).ready(function() {
     }
 
     $user_progress_meter.width(progress+'%');
+    //$user_progress_text.text((Math.round(progress*10)/10).toFixed(1)+'%');
+    //$user_progress_text.text(Math.round(progress)+'%');
+    $user_progress_text.text(progress.toFixed(0)+'%');
     $secs_remaining.text(Math.ceil(remaining_secs));
 
     if(!window.initial_progress) {
