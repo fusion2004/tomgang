@@ -55,12 +55,20 @@
 
     <div class="four columns">
       <% if user_signed_in? %>
+
         <div class="row">
           <div class="three columns">
             <%= image_tag(current_user.gravatar_url) %>
           </div>
           <div class="nine columns">
             <h3><%= link_to current_user.name, current_user %></h3>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="row">
+          <div class="twelve columns user-links">
+            <%= link_to 'Edit profile', edit_user_registration_path %>
+            &middot;
             <%= link_to "Logout", destroy_user_session_path, method: :delete %>
           </div>
         </div>
