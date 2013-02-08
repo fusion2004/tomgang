@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="two columns">
+    <%= image_tag @user.gravatar_url %>
+  </div>
+  <div class="ten columns">
+    <h2><%= @user.name %> <small>&middot; Level <%= @user.level %></small></h2>
+
+    <div class="row">
+      <div class="six columns">
+        <h4>Health</h4>
+        <div class="radius progress alert twelve"><div class="progress-background">&nbsp;</div><span class="meter" style="width: <%= (@user.current_hp.to_f / @user.max_hp.to_f) * 100 %>%"></span><div class="progress-data"><%= @user.current_hp %> / <%= @user.max_hp %></div></div>
+        
+        <h4>Mana</h4>
+        <div class="radius progress twelve"><div class="progress-background">&nbsp;</div><span class="meter" style="width: <%= (@user.current_mana.to_f / @user.max_mana.to_f) * 100 %>%"></span><div class="progress-data"><%= @user.current_mana %> / <%= @user.max_mana %></div></div>
+
+        <h4>Stats</h4>
+        <table class="twelve">
+          <tbody>
+            <tr>
+              <td class="five">STR</td>
+              <td class="six"><%= @user.str %></td>
+            </tr>
+            <tr>
+              <td>VIT</td>
+              <td><%= @user.vit %></td>
+            </tr>
+            <tr>
+              <td>DEX</td>
+              <td><%= @user.dex %></td>
+            </tr>
+            <tr>
+              <td>INT</td>
+              <td><%= @user.int %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="six columns">
+        <h4>Equip</h4>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<h2>Users</h2>
+
+<table class="twelve">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Level</th>
+      <th>Joined</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td class="four"><%= link_to user.name, user %></td>
+      <td class="four">Level <%= user.level %></td>
+      <td class="four"><%= user.created_at.localtime.strftime('%B %e, %Y') %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
