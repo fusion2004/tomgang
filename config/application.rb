@@ -60,5 +60,15 @@ module Tomgang
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        :port =>           '587',
+        :address =>        'smtp.mandrillapp.com',
+        :user_name =>      ENV['MANDRILL_USERNAME'],
+        :password =>       ENV['MANDRILL_APIKEY'],
+        :domain =>         'tomgang.mn',
+        :authentication => :plain
+    }
   end
 end
