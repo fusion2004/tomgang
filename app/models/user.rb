@@ -22,6 +22,16 @@ class User < ActiveRecord::Base
 
   def init_level
     self.level = 1
+    self.current_hp = 100
+    self.max_hp = 100
+    self.current_mana = 50
+    self.max_mana = 50
+    self.str = 5
+    self.vit = 5
+    self.dex = 5
+    self.int = 5
+
+    true
   end
 
   def init_leveling!
@@ -42,10 +52,17 @@ class User < ActiveRecord::Base
   def level_up!
     self.level = self.level + 1
     self.last_level_up = Time.now
+
+    self.max_hp = calc_max_hp
+    self.current_hp = self.max_hp
+
+    self.max_mana = calc_max_mana
+    self.current_mana = self.max_mana
+
     save
 
     calc_next_level_up!
-  end  
+  end
 
   def calc_next_level_up!
     next_level = self.level + 1
@@ -53,5 +70,12 @@ class User < ActiveRecord::Base
 
     self.next_level_up = self.last_level_up + secs.seconds
     save
+  end
+
+  def calc_max_hp
+    (90.0 + 6.0 * Math.log(self.vit ** self.level, Math::E)).ceil
+  end
+  def calc_max_mana
+    (45.0 + 3.0 * Math.log(self.int ** self.level, Math::E)).ceil
   end
 end
