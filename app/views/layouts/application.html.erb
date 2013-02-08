@@ -60,6 +60,9 @@
       <% if user_signed_in? %>
         <%= image_tag(current_user.gravatar_url) %>
         <%= link_to current_user.name, current_user %>
+        <hr />
+        <strong>Level <%= current_user.level %></strong><br/>
+        <div class="radius progress success eight"><span class="meter" style="width: <%= @level_percent %>%"></span></div>
       <% elsif !devise_controller? %>
         <h2>Sign in</h2>
 
