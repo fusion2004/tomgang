@@ -17,9 +17,6 @@
   
 	<!-- Included CSS Files -->
 	<%= stylesheet_link_tag    "application" %>
-	
-	<!-- Included JS Files  -->
-	<%= javascript_include_tag "application" %>
   
   <%= csrf_meta_tags %>
 </head>
@@ -58,11 +55,18 @@
 
     <div class="four columns">
       <% if user_signed_in? %>
-        <%= image_tag(current_user.gravatar_url) %>
-        <%= link_to current_user.name, current_user %>
+        <div class="row">
+          <div class="three columns">
+            <%= image_tag(current_user.gravatar_url) %>
+          </div>
+          <div class="nine columns">
+            <h3><%= link_to current_user.name, current_user %></h3>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </div>
+        </div>
         <hr />
-        <strong>Level <%= current_user.level %></strong><br/>
-        <div class="radius progress success eight"><span class="meter" style="width: <%= @level_percent %>%"></span></div>
+        <div id="user_level_progress" data-last-level-up="<%= current_user.last_level_up.to_i %>" data-next-level-up="<%= current_user.next_level_up.to_i %>" class="radius progress success"><span class="meter" style="width: <%= @level_percent %>%"></span></div>
+        <p><strong>Level <%= current_user.level %></strong> | <span id="level_progress_secs_remaining"><%= @current_secs %></span> seconds remaining</p>
       <% elsif !devise_controller? %>
         <h2>Sign in</h2>
 
@@ -90,5 +94,15 @@
     <div class="eight columns">
       <%= yield %>
     </div>
+
+  <% if user_signed_in? %>
+    <script>
+    window.user_signed_in = true;
+    </script>
+  <% end %>
+
+  <!-- Included JS Files  -->
+  <%= javascript_include_tag "application" %>
+  
 </body>
 </html>

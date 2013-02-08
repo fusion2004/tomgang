@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
 
   def level_up!
     self.level = self.level + 1
+    self.last_level_up = Time.now
     save
 
     calc_next_level_up!
@@ -50,7 +51,7 @@ class User < ActiveRecord::Base
     next_level = self.level + 1
     secs = Math.log(next_level ** next_level, Math::E) + next_level ** 2
 
-    self.next_level_up = self.last_level_up + secs
+    self.next_level_up = self.last_level_up + secs.seconds
     save
   end
 end
