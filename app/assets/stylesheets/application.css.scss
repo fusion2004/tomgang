@@ -19,6 +19,11 @@ body {
   padding-top: 45px;
 }
 
+form em {
+  display: block;
+  margin-bottom: 20px;
+}
+
 .main {
   margin: 15px auto;
 }
@@ -29,10 +34,6 @@ body {
   margin-right: 6px;
 
   margin-top: 6px;
-
-  @media only screen and (max-width: 767px) {
-    //margin-top: -4px;
-  }
 }
 
 .title.back .nav-gravatar {

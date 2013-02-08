@@ -58,4 +58,6 @@ $(document).ready(function() {
   if(window.user_signed_in) {
     var progress_timer = setInterval(update_progress, 300);
   }
+
+  $('.field_with_errors').find('label, input').addClass('error');
 });

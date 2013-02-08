@@ -1,17 +1,39 @@
 <h2>Sign in</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :email, class: 'right inline' %>
+    </div>
+    <div class="ten mobile-three columns">
+      <%= f.email_field :email, autofocus: true, class: 'eight' %>
+    </div>
+  </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :password, class: 'right inline' %>
+    </div>
+    <div class="ten mobile-three columns">
+      <%= f.password_field :password, class: 'eight' %>
+    </div>
+  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
+  <div class="row">
+    <div class="two mobile-one columns"></div>
+    <div class="ten mobile-three columns">
+      <% if devise_mapping.rememberable? -%>
+        <%= f.label :remember_me do %><%= f.check_box :remember_me %> Remember me<% end %>
+      <% end -%>
+    </div>
+  </div>
 
-  <div><%= f.submit "Sign in" %></div>
+  <div class="row">
+    <div class="two mobile-one columns"></div>
+    <div class="ten mobile-three columns">
+      <%= f.submit "Sign in", class: 'radius button', style: 'margin-top: 10px;' %>
+    </div>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>

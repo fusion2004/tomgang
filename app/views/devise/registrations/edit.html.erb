@@ -3,27 +3,72 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :email, class: 'right inline' %>
+    </div>
+    <div class="ten mobile-three columns">
+      <%= f.email_field :email, autofocus: true, class: 'eight' %>
+    </div>
+  </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div class="row">
+    <div class="two mobile-one columns">
+    </div>
+    <div class="ten mobile-three columns">
+      Currently waiting confirmation for:<br />
+      <strong><%= resource.unconfirmed_email %></strong>
+    </div>
+    </div>
   <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :password, class: 'right inline' %>
+    </div>
+    <div class="ten mobile-three columns">
+      <%= f.password_field :password, autocomplete: "off", class: 'eight' %>
+      <em>(leave blank if you don't want to change it)</em>
+    </div>
+  </div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :password_confirmation, class: 'right inline', style: 'line-height: 1.3em;' %>
+    </div>
+    <div class="ten mobile-three columns">
+      <%= f.password_field :password_confirmation, class: 'eight' %>
+    </div>
+  </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :current_password, class: 'right inline', style: 'line-height: 1.3em;' %>
+    </div>
+    <div class="ten mobile-three columns">
+      <%= f.password_field :current_password, class: 'eight' %>
+      <em>(we need your current password to confirm your changes)</em>
+    </div>
+  </div>
 
-  <div><%= f.submit "Update" %></div>
+  <div class="row">
+    <div class="two mobile-one columns"></div>
+    <div class="ten mobile-three columns">
+      <%= f.submit "Update", class: 'radius button' %>
+    </div>
+  </div>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+<form><div class="row">
+  <div class="two mobile-one columns">
+    <div class="right inline">Unhappy?</div>
+  </div>
+  <div class="ten mobile-three columns">
+    <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, class: 'radius alert button' %>
+  </div>
+</div></form>
 
-<%= link_to "Back", :back %>
+<%= link_to "Back", :back, class: 'radius secondary button', style: 'margin-top:20px;' %>

@@ -3,10 +3,21 @@
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <div class="row">
+    <div class="two mobile-one columns">
+      <%= f.label :email, class: 'right inline' %>
+    </div>
+    <div class="ten mobile-three columns">
+      <%= f.email_field :email, autofocus: true, class: 'eight' %>
+    </div>
+  </div>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
+  <div class="row">
+    <div class="two mobile-one columns"></div>
+    <div class="ten mobile-three columns">
+      <%= f.submit "Send me reset password instructions", class: 'radius button' %>
+    </div>
+  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
