@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="two columns">
+  <div class="two mobile-one columns">
     <%= image_tag @user.gravatar_url %>
   </div>
-  <div class="ten columns">
-    <h2><%= @user.name %> <small>&middot; Level <%= @user.level %></small></h2>
+  <div class="ten mobile-three columns">
+    <h2><%= @user.name %> <small><span class="hide-for-small">&middot;</span><br class="show-for-small" /> Level <%= @user.level %></small></h2>
 
     <div class="row">
       <div class="six columns">

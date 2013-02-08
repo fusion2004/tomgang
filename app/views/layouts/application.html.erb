@@ -57,10 +57,10 @@
       <% if user_signed_in? %>
 
         <div class="row">
-          <div class="three columns">
-            <%= image_tag(current_user.gravatar_url) %>
+          <div class="three mobile-one columns">
+            <%= link_to image_tag(current_user.gravatar_url), current_user %>
           </div>
-          <div class="nine columns">
+          <div class="nine mobile-three columns">
             <h3><%= link_to current_user.name, current_user %></h3>
           </div>
           <div class="clear"></div>
@@ -79,28 +79,28 @@
         <hr />
 
         <div class="row">
-          <div class="two columns">
+          <div class="two mobile-one columns">
             <p><strong>Health</strong></p>
           </div>
-          <div class="ten columns">
+          <div class="ten mobile-three columns">
             <div id="user_hp_progress" data-current-hp="<%= current_user.current_hp %>" data-max-hp="<%= current_user.max_hp %>" class="radius progress alert"><div class="progress-background">&nbsp;</div><span class="meter" style="width: <%= @hp_percent %>%"></span><div class="progress-data"><%= current_user.current_hp %> / <%= current_user.max_hp %></div></div>
           </div>
         </div>
 
         <div class="row">
-          <div class="two columns">
+          <div class="two mobile-one columns">
             <p><strong>Mana</strong></p>
           </div>
-          <div class="ten columns">
+          <div class="ten mobile-three columns">
             <div id="user_mana_progress" data-current-hp="<%= current_user.current_mana %>" data-max-hp="<%= current_user.max_mana %>" class="radius progress"><div class="progress-background">&nbsp;</div><span class="meter" style="width: <%= @mana_percent %>%"></span><div class="progress-data"><%= current_user.current_mana %> / <%= current_user.max_mana %></div></div>
           </div>
         </div>
 
         <div class="row">
-          <div class="two columns">
+          <div class="two mobile-one columns">
             <p><strong>Stats</strong></p>
           </div>
-          <div class="ten columns">
+          <div class="ten mobile-three columns">
             <table class="twelve">
               <tbody>
                 <tr>
@@ -125,10 +125,10 @@
         </div>
 
         <div class="row">
-          <div class="two columns">
+          <div class="two mobile-one columns">
             <p><strong>Equip</strong></p>
           </div>
-          <div class="ten columns">
+          <div class="ten mobile-three columns">
             <table class="twelve">
               <tbody>
                 <tr>
@@ -184,6 +184,7 @@
       <% end %>
     </div>
     <div class="eight columns">
+      <hr class="show-for-small" />
       <%= yield %>
     </div>
 
