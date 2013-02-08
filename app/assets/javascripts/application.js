@@ -34,7 +34,8 @@ $(document).ready(function() {
     if(remaining_secs < 0) {
       remaining_secs = 0;
       progress = 100;
-      document.location.reload();
+      setTimeout(document.location.reload, 1000);
+      return;
     }
 
     $user_progress_meter.width(progress+'%');
